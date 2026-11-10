@@ -10,8 +10,8 @@ screen.setup(width, height)
 
 def draw_background(color): 
     """
-    Description: Sets the window's background to the given color for sky, 
-    then makes the rest of the scene by calling draw_snow, draw_tree, and draw_sun.
+    Description: Sets the window's background to the given color for sky, then makes 
+    the rest of the scene by calling draw_snow, draw_tree, and draw_sun.
 
     Parameters:
         color (string): the color for the sky
@@ -100,7 +100,8 @@ def draw_leaves(color, x, y, base, angle):
 
 def draw_sun(color, x, y, r):
     """
-    Description: Draw the sun as a filled circle in the top right corner of the sky by calling draw_circle
+    Description: Draws the sun as a filled circle in the top right 
+    corner of the sky by calling draw_circle
 
     Parameters: 
         color (string): the color of the sun (yellow)
@@ -137,7 +138,8 @@ def frosty_body(color, x, y, r):
 
     Parameters: 
         color (string): the color of the body (white)
-        x, y (int): the center of the bottom circle. All three circles share the same x-value
+        x, y (int): the center of the bottom circle. 
+        All three circles share the same x-value
         r (int): the radius of the bottom circle
 
     Return values: None (draws the body, arms, and accessories on the screen)
@@ -166,7 +168,8 @@ def frosty_arms(color, x, y, r, length):
         color (string): the color of the arms (brown)
         x, y (int): the center of the torso (the middle circle of the body)
         r (int): the radius of the torso circle, so the arms start at its 
-        left and right edges length (int): the length value of each arm
+        left and right edges 
+        length (int): the length value of each arm
 
     Return values: None (draws the arms on the screen)
     """
@@ -239,11 +242,10 @@ def frosty_scarf(color, x, y, base, height):
     Parameters: 
         color (string): the color of the scarf (red)
         x, y (int): the bottom left corner of the scarf
-        base (int), height (int): The width and height of the scarf
+        base (int), height (int): the width and height of the scarf
 
     Return values: None (draws the scarf on the screen)
     """
-
 
     draw_rectangle(color, x, y, base, height)
 
@@ -306,8 +308,8 @@ def frosty_eyes(color, x, y, r):
 
 def frosty_nose(color, x, y, base, a1, s1, a2, s2):
     """
-    Description: Draws the carrot nose as a thin triangle that starts 
-    at the middle of the head and points outward, by calling draw_triangle
+    Description: Draws the carrot nose as a thin triangle that starts at the 
+    middle of the head and points outward, by calling draw_triangle
 
     Parameters: 
         color (string): the color of the nose (orange)
@@ -325,11 +327,11 @@ def frosty_nose(color, x, y, base, a1, s1, a2, s2):
 
 def draw_triangle(color, x, y, base, a1, s1, a2, s2):
     """
-    Description: Helper function that draws one filled triangle. 
-    It moves to (x, y) with the pen up, sets the heading (angle to east) 0, 
-    puts the pen down, sets the pen and fill colors, and starts the fill. 
-    It then draws the first side, turns left by a1, draws the second 
-    side, turns left by a2, and then draws the third side, and ends 
+    Description: Helper function that draws one filled triangle. It moves 
+    to (x, y) with the pen up, sets the heading (angle to east) 0, puts
+    the pen down, sets the pen and fill colors, and starts the fill. It 
+    then draws the first side, turns left by a1, draws the second side,
+    turns left by a2, and then draws the third side, and ends 
     the fill. It is used by draw_leaves and frosty_nose.
 
     Parameters: 
@@ -339,7 +341,7 @@ def draw_triangle(color, x, y, base, a1, s1, a2, s2):
         a1 (int): the angle in degrees to turn after the first side
         s1 (int): the length of the second side
         a2 (int): the angle in degrees to turn after the second side
-        s2 (int):  the length of the third side, which closes the triangle
+        s2 (int): the length of the third side, which closes the triangle
 
     Return values: None (draws the filled triangle on the screen)
     """
