@@ -8,27 +8,27 @@ A Python program that uses the turtle module to draw a winter scene: a snowman w
 
 Running the program
 
-Requirements: Python 3 with the turtle module (included with the standard library; it needs Tkinter, which comes with most Python installs).
+Requirements: Python 3 with the turtle module (including the standard library).
 
 python frosty.py
 
-Replace frosty.py with whatever you named the file. A 600 x 600 window opens and the scene is drawn. Close the window to end the program.
+Replace frosty.py with whatever you (dear reader) named the file on download. A 600 x 600 window opens and the scene is drawn. Close the window to end the program.
 
 What gets drawn
 Element	Color
 Sky	Light blue
 Snow on the ground	White
 Sun	Yellow
-Tree leaves	Green
-Tree trunk	Brown
-Snowman body	White
-Snowman arms	Brown
+Tree leaves Green
+Tree trunk Brown
+Snowman body White
+Snowman arms Brown
 Snowman hat, eyes, buttons	Black
-Snowman scarf	Red
-Snowman nose	Orange
+Snowman scarf Red
+Snowman nose Orange
 How the code is organized
 
-The main program only calls two functions, draw_background() and draw_frosty(). Everything else is built from custom functions in three layers.
+The main program only calls two functions, draw_background(), draw_frosty(), and finish(). Everything else is built from custom functions in three layers.
 
 Shape functions (the only functions that draw filled shapes):
 
@@ -66,12 +66,9 @@ Loops
 Tree leaves: draw_leaves draws three triangles, each smaller than the last and shifted up and over so they stay centered on the trunk.
 Snowman body: frosty_body draws three circles, each smaller than the last and placed higher so they overlap slightly.
 Buttons: frosty_buttons draws three identical buttons, moving up each time.
+
 Coordinates
-
-The window is 600 x 600, and turtle's origin (0, 0) is the center. The x-values run from -300 (left) to 300 (right) and the y-values from -300 (bottom) to 300 (top). Every shape function takes an (x, y) position:
-
+The window is 600 x 600, and turtle's origin (0, 0) is the center. The x-values run from -300 (left) to 300 (right) and the y-values from -300 (bottom) to 300 (top). 
+Every shape function takes an (x, y) position:
 circles are positioned by their center
 rectangles and triangles are positioned by their starting (bottom-left) corner
-Changing the scene
-Sky color: change the string passed to draw_background in the main program.
-Moving the snowman: frosty_body places the three circles and the arms from its x, y, r arguments, but the scarf, hat, buttons, eyes, and nose use fixed coordinates in frosty_decor and frosty_face. If you move the snowman, move those coordinates by the same amount.
