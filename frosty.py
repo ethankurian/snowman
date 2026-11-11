@@ -1,11 +1,16 @@
+# Calls turtle module to draw things in python
 import turtle
 
+# Creates Turtle and Screen objects
 frosty = turtle.Turtle()
 screen = turtle.Screen()
 
+# Sets the speed of frosty
+frosty.speed(6)
+
+# Width and Height of the screen
 width = 600
 height = 600
-
 screen.setup(width, height)
 
 def draw_background(color): 
@@ -100,8 +105,8 @@ def draw_leaves(color, x, y, base, angle):
 
 def draw_sun(color, x, y, r):
     """
-    Description: Draws the sun as a filled circle in the top right 
-    corner of the sky by calling draw_circle
+    Description: Draws the sun as a filled circle in the upper right
+    of the sky by calling draw_circle
 
     Parameters: 
         color (string): the color of the sun (yellow)
@@ -144,7 +149,7 @@ def frosty_body(color, x, y, r):
 
     Return values: None (draws the body, arms, and accessories on the screen)
     """
-
+    
     radius = r
     axis_y = y
 
@@ -190,7 +195,7 @@ def frosty_decor():
 
     frosty_scarf("red", -155, 68, 70, 16)
     frosty_hat("black", -182, 182, 124, 15) 
-    frosty_buttons("black", -120, -75, 9)
+    frosty_buttons("black", -120, -20, 9)
 
 def frosty_face():
     """
@@ -208,10 +213,10 @@ def frosty_face():
 
 def frosty_line(color, x, y, r, length):
     """
-    Description: Draws both arms as straight lines that mirror each other. 
-    The right arm starts at the right edge of the torso and points up 
-    and to the right. The left arm starts at the left edge of the torso 
-    and points up and to the left.
+    Description: Draws both arms as thick (size 5) straight lines that mirror each other. 
+    The pen size is set back to 1 after it finishes. The right arm starts at the right
+    edge of the torso and points up and to the right. The left arm starts at the left
+    edge of the torso and points up and to the left.
 
     Parameters: 
         color (string): the color of the lines (brown)
@@ -226,6 +231,7 @@ def frosty_line(color, x, y, r, length):
     frosty.penup()
     frosty.goto(x + r, y) 
     frosty.setheading(65)
+    frosty.pensize(5)
     frosty.pendown()
     frosty.forward(length)
     frosty.penup()
@@ -233,6 +239,7 @@ def frosty_line(color, x, y, r, length):
     frosty.setheading(115)
     frosty.pendown()
     frosty.forward(length)
+    frosty.pensize(1)
 
 def frosty_scarf(color, x, y, base, height):
     """
@@ -287,7 +294,7 @@ def frosty_buttons(color, x, y, r):
 
     for _ in range(3):
         draw_circle(color, x, y, r)
-        y += 50
+        y += 30
 
 def frosty_eyes(color, x, y, r):
     """
@@ -308,12 +315,14 @@ def frosty_eyes(color, x, y, r):
 
 def frosty_nose(color, x, y, base, a1, s1, a2, s2):
     """
-    Description: Draws the carrot nose as a thin triangle that starts at the 
-    middle of the head and points outward, by calling draw_triangle
+    Description: Draws the carrot nose as a thin triangle that starts just
+    below the eyes, on the head's center line, and points outward, by calling
+    draw_triangle
 
     Parameters: 
         color (string): the color of the nose (orange)
-        x, y (int): the starting corner of the nose, in the middle of the head
+        x, y (int): the starting corner of the nose, just below the eyes
+        on the head's center line
         base (int): the length of the first side
         a1, s1 (int): the angle in degrees to turn left after the first side, 
         and the length of the second side
@@ -335,7 +344,7 @@ def draw_triangle(color, x, y, base, a1, s1, a2, s2):
     the fill. It is used by draw_leaves and frosty_nose.
 
     Parameters: 
-        color (string): the pen and fill color
+        color (string): the fill color
         x, y (int): the starting corner of the triangle
         base (int): the length of the first side, drawn horizontally
         a1 (int): the angle in degrees to turn after the first side
@@ -349,7 +358,7 @@ def draw_triangle(color, x, y, base, a1, s1, a2, s2):
     frosty.goto(x, y)
     frosty.setheading(0)
     frosty.pendown()
-    frosty.pencolor(color)
+    frosty.pencolor("Black")
     frosty.fillcolor(color)
     frosty.begin_fill()
     frosty.forward(base)
@@ -367,7 +376,7 @@ def draw_circle(color, x, y, r):
     used by draw_sun, frosty_body, frosty_buttons, and frosty_eyes.
 
     Parameters: 
-        color (string): the pen and fill color
+        color (string): the fill color
         x, y (int): the center of the circle
         r (int): the radius of the circle
 
@@ -378,7 +387,7 @@ def draw_circle(color, x, y, r):
     frosty.goto(x, y - r)
     frosty.setheading(0)
     frosty.pendown()
-    frosty.pencolor(color)
+    frosty.pencolor("Black")
     frosty.fillcolor(color)
     frosty.begin_fill()
     frosty.circle(r)
@@ -393,7 +402,7 @@ def draw_rectangle(color, x, y, base, height):
     frosty_scarf, and frosty_hat.
 
     Parameters:
-        color (string): the pen and fill color
+        color (string): the fill color
         x, y (int): the bottom left corner of the rectangle
         base (int): the width of the rectangle
         height (int): the height of the rectangle
@@ -405,7 +414,7 @@ def draw_rectangle(color, x, y, base, height):
     frosty.goto(x, y)
     frosty.setheading(0)
     frosty.pendown()
-    frosty.pencolor(color)
+    frosty.pencolor("Black")
     frosty.fillcolor(color)
     frosty.begin_fill()
     for _ in range(2):
@@ -417,7 +426,8 @@ def draw_rectangle(color, x, y, base, height):
 
 def finish():
     """
-    Description: Keeps the window open until the user closes it.
+    Description: Keeps the window open until the user closes it
+    and hides turtle object.
 
     Parameters:
         None.
@@ -425,6 +435,7 @@ def finish():
     Return values: None (keeps the drawing on the screen)
     """
 
+    frosty.hideturtle()
     turtle.done()
 
 
