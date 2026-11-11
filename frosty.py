@@ -1,16 +1,14 @@
-# Calls turtle module to draw things in python
 import turtle
 
-# Creates Turtle and Screen objects
 frosty = turtle.Turtle()
 screen = turtle.Screen()
 
-# Sets the speed of frosty
-frosty.speed(6)
-
-# Width and Height of the screen
 width = 600
 height = 600
+speed = 6
+
+frosty.speed(speed)
+
 screen.setup(width, height)
 
 def draw_background(color): 
